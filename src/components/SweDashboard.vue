@@ -66,14 +66,31 @@ export default {
             /** 
              * store time reference in local storage to persist on reload
              */
-            let Mau = firebase.auth().currentUser.email.includes('maurice')
-            let Rob = firebase.auth().currentUser.email.includes('robertdr')
-            let Zeke = firebase.auth().currentUser.email.includes('ezekielr')
-            let Jhed = firebase.auth().currentUser.email.includes('jedidiahm')
-            let Ash = firebase.auth().currentUser.email.includes('ashleyab')
-            let Jem = firebase.auth().currentUser.email.includes('jemillem')
-            let Kny = firebase.auth().currentUser.email.includes('Knychtellc')
-            if(parseInt(hourChecker)<2 && (!Mau && !Rob && !Zeke && !Jhed && !Ash && !Jem && !Kny)){
+            let aftemail = firebase.auth().currentUser.email
+            let aftshift = false
+            if (aftemail.includes('maurice')) {
+                aftshift = true
+            }
+            if (aftemail.includes('robertdr')){
+                aftshift = true
+            }
+            if (aftemail.includes('ezekielr')){
+                aftshift = true
+            }
+            if (aftemail.includes('jedidiahm')){
+                aftshift = true
+            }
+            if (aftemail.includes('ashleyab')){
+                aftshift = true
+            }
+            if (aftemail.includes('jemille')){
+                aftshift = true
+            }
+            if (aftemail.includes('knychtell')){
+                aftshift = true
+            }
+
+            if(parseInt(hourChecker)<2 && !aftshift){
                 alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
                 this.timedIn = false
             }else{
