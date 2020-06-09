@@ -98,7 +98,7 @@ export default {
                 let aftshift = true;
             }
 
-            alert((aftshift) + '<<=>>' + (!aftshift))
+            // alert((aftshift) + '<<=>>' + (!aftshift))
             if(parseInt(hourChecker)<2 && !aftshift){
                 alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
                 this.timedIn = false
