@@ -74,8 +74,31 @@ export default {
             let Jem = firebase.auth().currentUser.email.includes('jemille')
             let Kny = firebase.auth().currentUser.email.includes('knychtell')
 
-            let aftshift = (Mau && Rob && Zeke && Jhed && Ash && Jem && Kny)
-            
+            let aftshift = false
+
+            if (Mau){
+                let aftshift = true
+            } 
+            if(Rob){
+                let aftshift = true
+            }
+            if (Zeke){
+                let aftshift = true
+            }
+            if(Jhed){
+                let aftshift = true;
+            }
+            if(Ash){
+                let aftshift = true;
+            }
+            if(Jem){
+                let aftshift = true;
+            }
+            if(Kny){
+                let aftshift = true;
+            }
+
+            alert((aftshift) + '<<=>>' + (!aftshift))
             if(parseInt(hourChecker)<2 && !aftshift){
                 alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
                 this.timedIn = false
