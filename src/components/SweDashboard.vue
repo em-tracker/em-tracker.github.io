@@ -66,44 +66,47 @@ export default {
             /** 
              * store time reference in local storage to persist on reload
              */
+
+            /**
+             *  This will enable midshift to login starting @2PM PHT 
+             * */
             let Mau = firebase.auth().currentUser.email.includes('maurice')
             let Rob = firebase.auth().currentUser.email.includes('robertdr')
             let Zeke = firebase.auth().currentUser.email.includes('ezekielr')
             let Jhed = firebase.auth().currentUser.email.includes('jedidiahm')
             let Ash = firebase.auth().currentUser.email.includes('ashleyab')
             let Jem = firebase.auth().currentUser.email.includes('jemille')
-            let Kny = firebase.auth().currentUser.email.includes('knychtell')
-
+            let Kny = firebase.auth().currentUser.email.includes('knychtellc')
+            
+            //Initializing a variable to check if condition is appropriate for each swe
             let aftshift = false
-
+            //Resetting the variable
             if (Mau){
-                let aftshift = true
+                aftshift = true
             } 
             if(Rob){
-                let aftshift = true
+                aftshift = true
             }
             if (Zeke){
-                let aftshift = true
+                aftshift = true
             }
             if(Jhed){
-                let aftshift = true;
+                aftshift = true
             }
             if(Ash){
-                let aftshift = true;
+                aftshift = true
             }
             if(Jem){
-                let aftshift = true;
+                aftshift = true
             }
             if(Kny){
-                let aftshift = true;
+                aftshift = true
             }
-
-            // alert((aftshift) + '<<=>>' + (!aftshift))
-            if(parseInt(hourChecker)<2 && !aftshift){
+            //Changing "!Mau" to "!aftshift" for swe email check
+            if(parseInt(hourChecker)<2 && !aftshift) {
                 alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
                 this.timedIn = false
-            }else{
-
+            } else{
                 db.collection('Timesheet').add({
                     Name: firebase.auth().currentUser.email,
                     Timein: new Date(),
