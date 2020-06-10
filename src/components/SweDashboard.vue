@@ -77,6 +77,7 @@ export default {
             let Ash = firebase.auth().currentUser.email.includes('ashleyab')
             let Jem = firebase.auth().currentUser.email.includes('jemille')
             let Kny = firebase.auth().currentUser.email.includes('knychtellc')
+            let Teej = firebase.auth().currentUser.email.includes('testtj')
             
             //Initializing a variable to check if condition is appropriate for each swe
             let aftshift = false
@@ -100,6 +101,9 @@ export default {
                 aftshift = true
             }
             if(Kny){
+                aftshift = true
+            }
+            if(Teej){
                 aftshift = true
             }
             //Changing "!Mau" to "!aftshift" for swe email check
