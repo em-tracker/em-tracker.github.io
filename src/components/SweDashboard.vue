@@ -108,11 +108,11 @@ export default {
             }
             //Changing "!Mau" to "!aftshift" for swe email check
             //alert(firebase.database.ServerValue.TIMESTAMP)
-
-            if(parseInt(hourChecker)<2 && !aftshift) {
-                alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
-                this.timedIn = false
-            } else{
+            // Removed the filter, SWEs should login now anytime without restrictions
+            //if(parseInt(hourChecker)<2 && !aftshift) {
+            //    alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
+            //    this.timedIn = false
+            //} else{
                 db.collection('Timesheet').add({
                     Name: firebase.auth().currentUser.email,
                     Timein: new Date(),
@@ -141,7 +141,7 @@ export default {
                 })
                 e.preventDefault()
 
-            }e.preventDefault()
+            //}e.preventDefault()
         },
         timeOut(e){
             let date1 = this.timein
