@@ -108,7 +108,8 @@ export default {
             }
             //Changing "!Mau" to "!aftshift" for swe email check
             //alert(firebase.database.ServerValue.TIMESTAMP)
-            // Removed the filter, SWEs should login now anytime without restrictions
+            // Removed the filter, SWEs should login now anytime without restrictions.
+            // Production is not getting this updates
             //if(parseInt(hourChecker)<2 && !aftshift) {
             //    alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
             //    this.timedIn = false
