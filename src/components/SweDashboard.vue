@@ -69,7 +69,7 @@ export default {
 
             /**
              *  This will enable midshift to login starting @2PM PHT 
-             * */
+             * 
             let Mau = firebase.auth().currentUser.email.includes('maurice')
             let Rob = firebase.auth().currentUser.email.includes('robertdr')
             let Zeke = firebase.auth().currentUser.email.includes('ezekielr')
@@ -106,6 +106,7 @@ export default {
             if(Teej){
                 aftshift = true
             }
+            */
             //Changing "!Mau" to "!aftshift" for swe email check
             //alert(firebase.database.ServerValue.TIMESTAMP)
             // Removed the filter, SWEs should login now anytime without restrictions.
