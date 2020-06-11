@@ -107,6 +107,8 @@ export default {
                 aftshift = true
             }
             //Changing "!Mau" to "!aftshift" for swe email check
+            //alert(firebase.database.ServerValue.TIMESTAMP)
+
             if(parseInt(hourChecker)<2 && !aftshift) {
                 alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
                 this.timedIn = false
