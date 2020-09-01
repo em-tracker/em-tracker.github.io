@@ -62,35 +62,22 @@ export default {
             this.timeinDisplay = timeInDisplay.toLocaleString()
 
             let hourChecker = timeInDisplay.toLocaleString('en-US',{hour: 'numeric', hour12: true})
-            
+           
             /** 
              * store time reference in local storage to persist on reload
              */
-            let aftemail = firebase.auth().currentUser.email
-            let aftshift = false
-            if (aftemail.includes('maurice')) {
-                aftshift = true
-            }
-            if (aftemail.includes('robertdr')){
-                aftshift = true
-            }
-            if (aftemail.includes('ezekielr')){
-                aftshift = true
-            }
-            if (aftemail.includes('jedidiahm')){
-                aftshift = true
-            }
-            if (aftemail.includes('ashleyab')){
-                aftshift = true
-            }
-            if (aftemail.includes('jemille')){
-                aftshift = true
-            }
-            if (aftemail.includes('knychtell')){
-                aftshift = true
-            }
+            let Mau = firebase.auth().currentUser.email.includes('maurice')
+            let Rob = firebase.auth().currentUser.email.includes('robertdr')
+            let Zeke = firebase.auth().currentUser.email.includes('zekielr')
+            let Jhed = firebase.auth().currentUser.email.includes('jedidiahm')
+            let Ash = firebase.auth().currentUser.email.includes('ashleyab')
+            let Jem = firebase.auth().currentUser.email.includes('jemille')
+            let Knych = firebase.auth().currentUser.email.includes('knychtell')
+            let Teej = firebase.auth().currentUser.email.includes('testtj')
+            let Querv = firebase.auth().currentUser.email.includes("quervinlb")
+            let ansSWE = Teej && Mau && Rob && Zeke && Jhed && Ash && Jem && Knych && Querv
 
-            if(parseInt(hourChecker)<2 && !aftshift){
+            if((parseInt(hourChecker)<2) && !ansSWE){
                 alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
                 this.timedIn = false
             }else{
@@ -118,9 +105,9 @@ export default {
                         storedTimeDisplay: localTimeInDisplay.toLocaleString()
                         }
                      localStorage.setItem('localTimeRef', JSON.stringify(p))
-                     console.log(p)
+                     console.log(p) 
                    
-                })
+                }) 
                 e.preventDefault()
 
             }e.preventDefault()
