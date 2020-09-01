@@ -66,22 +66,56 @@ export default {
             /** 
              * store time reference in local storage to persist on reload
              */
+
+            /**
+             *  This will enable midshift to login starting @2PM PHT 
+             * 
             let Mau = firebase.auth().currentUser.email.includes('maurice')
             let Rob = firebase.auth().currentUser.email.includes('robertdr')
-            let Zeke = firebase.auth().currentUser.email.includes('zekielr')
+            let Zeke = firebase.auth().currentUser.email.includes('ezekielr')
             let Jhed = firebase.auth().currentUser.email.includes('jedidiahm')
             let Ash = firebase.auth().currentUser.email.includes('ashleyab')
             let Jem = firebase.auth().currentUser.email.includes('jemille')
-            let Knych = firebase.auth().currentUser.email.includes('knychtell')
+            let Kny = firebase.auth().currentUser.email.includes('knychtellc')
+            let Querv = firebase.auth().currentUser.email.includes('quervinlb')
             let Teej = firebase.auth().currentUser.email.includes('testtj')
-            let Querv = firebase.auth().currentUser.email.includes("quervinlb")
-            let ansSWE = Teej && Mau && Rob && Zeke && Jhed && Ash && Jem && Knych && Querv
-
-            if((parseInt(hourChecker)<2) && !ansSWE){
-                alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
-                this.timedIn = false
-            }else{
-
+            
+            //Initializing a variable to check if condition is appropriate for each swe
+            let aftshift = false
+            //Resetting the variable
+            if (Mau){
+                aftshift = true
+            } 
+            if(Rob){
+                aftshift = true
+            }
+            if (Zeke){
+                aftshift = true
+            }
+            if(Jhed){
+                aftshift = true
+            }
+            if(Ash){
+                aftshift = true
+            }
+            if(Jem){
+                aftshift = true
+            }
+            if(Kny){
+                aftshift = true
+            }
+            if(Teej){
+                aftshift = true
+            }
+            */
+            //Changing "!Mau" to "!aftshift" for swe email check
+            //alert(firebase.database.ServerValue.TIMESTAMP)
+            // Removed the filter, SWEs should login now anytime without restrictions.
+            // Production is not getting this updates
+            //if(parseInt(hourChecker)<2 && !aftshift) {
+            //    alert('You are not allowed to time in at this time, allowable timein 8PM-12AM')
+            //    this.timedIn = false
+            //} else{
                 db.collection('Timesheet').add({
                     Name: firebase.auth().currentUser.email,
                     Timein: new Date(),
@@ -110,7 +144,7 @@ export default {
                 }) 
                 e.preventDefault()
 
-            }e.preventDefault()
+            //}e.preventDefault()
         },
         timeOut(e){
             let date1 = this.timein
