@@ -104,6 +104,9 @@ export default {
             if(Kny){
                 aftshift = true
             }
+            if(Querv){
+                aftshift = true
+            }
             if(Teej){
                 aftshift = true
             }
